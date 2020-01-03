@@ -1,0 +1,24 @@
+os: linux
+dist: xenial
+language: c
+
+env:
+  global:
+    - travis_apt_get_options='--allow-downgrades --allow-remove-essential --allow-change-held-packages'
+    - travis_apt_get_options="-yq --no-install-suggests --no-install-recommends $travis_apt_get_options"
+
+matrix:
+  include:
+    - arch: amd64
+    - arch: arm64
+    - arch: ppc64le
+    - arch: s390x
+install: true
+before_install:
+  - apt list -a software-properties-common
+  - sudo apt-get install $travis_apt_get_options --only-upgrade software-properties-common
+  - apt list -a software-properties-common
+  - sudo apt-get install $travis_apt_get_options strace
+  - sudo -E strace -f apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
+install: true
+script: true
