@@ -19,6 +19,7 @@ before_install:
   - sudo apt-get install $travis_apt_get_options --only-upgrade software-properties-common
   - apt list -a software-properties-common
   - sudo apt-get install $travis_apt_get_options strace
-  - sudo -E strace -f apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
 install: true
-script: true
+script:
+  - ip a
+  - sudo -E strace -f apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
