@@ -1,5 +1,6 @@
 os: linux
-dist: xenial
+#dist: xenial
+dist: bionic
 language: c
 
 matrix:
@@ -7,8 +8,8 @@ matrix:
     - arch: amd64
     - arch: arm64
     - arch: ppc64le
-    - name: "s390x default condition"
-      arch: s390x
+    #- name: "s390x default condition"
+    - arch: s390x
     #- name: "s390x disabling IPv6"
     #  arch: s390x
      # before_script:
