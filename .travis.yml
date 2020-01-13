@@ -9,14 +9,14 @@ matrix:
     - arch: ppc64le
     - name: "s390x default condition"
       arch: s390x
-    - name: "s390x disabling IPv6"
-      arch: s390x
-      before_script:
-        - ip a
-        - sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-        - sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-        - sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
-        - ip a
+    #- name: "s390x disabling IPv6"
+    #  arch: s390x
+     # before_script:
+    #    - ip a
+      #  - sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+     #   - sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+     #   - sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
+     #   - ip a
 
 install: true
 before_install:
